@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>シンプルなパズドラ風パズル</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="layout">
+    <header class="layout__header">
+      <h1>シンプルなパズドラ風パズル</h1>
+      <p class="tagline">好きなドロップをクリック（またはタップ）し、ドラッグで移動させてコンボを狙いましょう。</p>
+    </header>
+
+    <section class="controls">
+      <button id="reset-button" class="button">新しい盤面を作る</button>
+      <label class="controls__size">盤面サイズ
+        <select id="board-size">
+          <option value="5x6">5 x 6（標準）</option>
+          <option value="6x7">6 x 7</option>
+          <option value="4x5">4 x 5</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="stats" aria-live="polite">
+      <div><span class="label">ターン:</span> <span id="stat-turns">0</span></div>
+      <div><span class="label">総コンボ:</span> <span id="stat-combos">0</span></div>
+      <div><span class="label">消したドロップ:</span> <span id="stat-orbs">0</span></div>
+      <div><span class="label">スコア:</span> <span id="stat-score">0</span></div>
+    </section>
+
+    <section class="board-wrapper">
+      <div id="board" class="board" role="grid" aria-label="パズル盤面"></div>
+    </section>
+
+    <section class="resolution" aria-live="polite">
+      <h2>結果</h2>
+      <div id="resolution-log" class="resolution__log">ドラッグでドロップを動かし、3つ以上揃えてください。</div>
+    </section>
+
+    <footer class="layout__footer">
+      <p>ドラッグ中は通過したマスと自動で入れ替わり、指を離すとコンボが自動的に判定されます。複数連鎖も再現しています。</p>
+    </footer>
+  </main>
+  <script src="script.js" type="module" defer></script>
+</body>
+</html>
